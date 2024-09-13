@@ -10,7 +10,7 @@ from loadSchedule import LoadSchedule
 app = QApplication(sys.argv)
 
 # Load the QSS (Qt Style Sheet) file
-with open("styles.qss", "r") as f:
+with open("qss/styles.qss", "r") as f:
     app.setStyleSheet(f.read())
 
 # Create the main window
@@ -18,10 +18,10 @@ window = QWidget()
 window.setWindowTitle("Sistema escolar de horarios")
 
 # Create the title
-title = QLabel("Sistema escolar para generar horarios", window)
+title = QLabel("Sistema escolar de generación de horarios", window)
 
 # Give it an "id"
-title.setObjectName("title")
+title.setObjectName("title-window")
 
 # Center it horizontally
 title.setAlignment(Qt.AlignHCenter)

@@ -1,6 +1,6 @@
-from PyQt5.QtWidgets import QWidget, QPushButton, QHBoxLayout
+from PyQt5.QtWidgets import QWidget, QPushButton, QHBoxLayout, QSizePolicy, QSpacerItem
 
-# agrupar unos botones, que esos botones, cambien la visibilidad de las tablas y del generador.
+# Buttons that show the other windows (widgets)
 class NavBar(QWidget):    
     def __init__(self, stack):
         super().__init__()
@@ -16,6 +16,10 @@ class NavBar(QWidget):
 
         layout.addWidget(generate_view_btn)
         layout.addWidget(tables_view_btn)
+
+        # Push the buttons to the left
+        spacer = QSpacerItem(500, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        layout.addSpacerItem(spacer)
 
         self.setLayout(layout)
 

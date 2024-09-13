@@ -7,31 +7,32 @@ Color palette:
 - #EB5E28 -> accent color
 */
 
-/* QWidget, QMainWindow {
-    background-color: #FFFCF2;
+QWidget {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-} */
+}
 
-/* QLabel {
-    font-size: 40px;
-} */
-
+/* The navbar buttons */
 QPushButton {
+    font-size: 20px;
     background-color: #EB5E28;
     border: 0;
-    padding: 2vw;
+    padding: 10px;
     color: #FFFCF2;
 }
 
-#title {
-    font-familiy: 'Helvetica Neue';
+#title-window {
     font-size: 48px;
+    font-weight: 800;
     color: #EB5E28;
 }
 
-#labelTitulo {
-    width: 1000px;
-    font-size: 40px;
-    font-weight: 800;
-    color: #403D39;
+#title-schedule {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+#generate-btn {
+    font-size: 25px;
+    font-weight: 600;
+    padding: 20px;
 }
