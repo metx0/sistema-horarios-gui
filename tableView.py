@@ -89,5 +89,3 @@ class TeacherTable(QTableWidget):
             self.setItem(i, 0, item_idMaestro)
             self.setItem(i, 1, item_nombre)
             self.setItem(i, 2, item_tipoMaestro)
-
-        print(self.teachers_data)
