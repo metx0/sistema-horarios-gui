@@ -36,6 +36,8 @@ class TeacherTable(QTableWidget):
             self.setItem(i, 1, item_nombre)
             self.setItem(i, 2, item_tipoMaestro)
 
+        self.resizeColumnsToContents()
+
 class SubjectTable(QTableWidget):
     def __init__(self):
         super().__init__()
@@ -65,3 +67,5 @@ class SubjectTable(QTableWidget):
             item_nombre = QTableWidgetItem(self.nombre[i][0])
             self.setItem(i, 0, item_idMateria)
             self.setItem(i, 1, item_nombre)
+        
+        self.resizeColumnsToContents()
