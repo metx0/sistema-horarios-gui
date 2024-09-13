@@ -1,32 +1,56 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout
+from PyQt5.QtWidgets import (
+    QApplication,
+    QWidget,
+    QLabel,
+    QVBoxLayout,
+    QPushButton,
+)
+
 # Used for text alignment
 from PyQt5.QtCore import Qt
 
-app = QApplication(sys.argv)
 
-# Load the QSS (Qt Style Sheet) file
-with open("styles.qss", "r") as f:
-    app.setStyleSheet(f.read())
+class MainWindow(QWidget):
+    def __init__(self):
+        super().__init__()
 
-# Create the main window
-window = QWidget()
-window.setWindowTitle("Sistema escolar de horarios")
+        # Set up the main window
+        self.setWindowTitle("Sistema escolar de horarios")
 
-# Create the title
-title = QLabel("Sistema escolar para generar horarios", window)
+        # Main layout (vertical, for the menu bar and the content)
+        self.main_layout = QVBoxLayout()
 
-# Give it an "id"
-title.setObjectName("title")
+        # Create the buttons (elements of the header)
+        self.show_tables_button = QPushButton("Ver tablas")
+        self.show_schedule_button = QPushButton("Generar horario")
 
-# Center it horizontally
-title.setAlignment(Qt.AlignHCenter)
+        # Create the title
+        self.title = QLabel("Sistema escolar para generar horarios")
 
-# Create a VBox layout to place the title
-vbox = QVBoxLayout()
-vbox.addWidget(title)
-window.setLayout(vbox)
+        # Give it an "id"
+        self.title.setObjectName("title")
+        # Center it horizontally
+        self.title.setAlignment(Qt.AlignHCenter)
 
-window.showMaximized()
+        self.main_layout.addWidget(self.title)
+        self.setLayout(self.main_layout)
 
-sys.exit(app.exec_())
+        self.showMaximized()
+
+
+def main():
+    app = QApplication(sys.argv)
+
+    # Load the QSS (Qt Style Sheet) file
+    with open("styles.qss", "r") as f:
+        app.setStyleSheet(f.read())
+
+    # Create an instance of the main window
+    main_window = MainWindow()
+    sys.exit(app.exec_())
+
+
+if __name__ == "__main__":
+    main()
+    
