@@ -1,57 +1,35 @@
 import sys
-from PyQt5.QtWidgets import (
-    QApplication,
-    QWidget,
-    QLabel,
-    QVBoxLayout,
-    QPushButton,
-)
-
+import sqlite3
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout
 # Used for text alignment
 from PyQt5.QtCore import Qt
-from tableWidget import DataTable
+from tableView import TeacherTable
 
+app = QApplication(sys.argv)
 
-class MainWindow(QWidget):
-    def __init__(self):
-        super().__init__()
+# Load the QSS (Qt Style Sheet) file
+with open("styles.qss", "r") as f:
+    app.setStyleSheet(f.read())
 
-        # Set up the main window
-        self.setWindowTitle("Sistema escolar de horarios")
+# Create the main window
+window = QWidget()
+window.setWindowTitle("Sistema escolar de horarios")
 
-        # Main layout (vertical, for the menu bar and the content)
-        self.main_layout = QVBoxLayout()
+# Create the title
+title = QLabel("Sistema escolar para generar horarios", window)
 
-        # Create the buttons (elements of the header)
-        self.show_tables_button = QPushButton("Ver tablas")
-        self.show_schedule_button = QPushButton("Generar horario")
+# Give it an "id"
+title.setObjectName("title")
 
-        # Create the title
-        self.title = QLabel("Sistema escolar para generar horarios")
+# Center it horizontally
+title.setAlignment(Qt.AlignHCenter)
 
-        # Give it an "id"
-        self.title.setObjectName("title")
-        # Center it horizontally
-        self.title.setAlignment(Qt.AlignHCenter)
+# Create a VBox layout to place the title
+vbox = QVBoxLayout()
+vbox.addWidget(title)
+vbox.addWidget(TeacherTable())
+window.setLayout(vbox)
 
-        self.main_layout.addWidget(self.title)
-        self.setLayout(self.main_layout)
+window.showMaximized()
 
-        self.showMaximized()
-
-
-def main():
-    app = QApplication(sys.argv)
-
-    # Load the QSS (Qt Style Sheet) file
-    with open("styles.qss", "r") as f:
-        app.setStyleSheet(f.read())
-
-    # Create an instance of the main window
-    main_window = MainWindow()
-    sys.exit(app.exec_())
-
-
-if __name__ == "__main__":
-    main()
-    
+sys.exit(app.exec_())
