@@ -16,9 +16,18 @@ Color palette:
     font-size: 40px;
 } */
 
+QPushButton {
+    background-color: #EB5E28;
+    border: 0;
+    padding: 2vw;
+    color: #FFFCF2;
+}
+
 #title {
     font-familiy: 'Helvetica Neue';
+    font-size: 48px;
     color: #EB5E28;
+}
 
 #labelTitulo {
     width: 1000px;

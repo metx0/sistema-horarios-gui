@@ -5,6 +5,7 @@ from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout, QStacked
 from PyQt5.QtCore import Qt
 from tableView import TeacherTable
 from navBar import NavBar
+from loadSchedule import LoadSchedule
 
 app = QApplication(sys.argv)
 
@@ -42,7 +43,7 @@ table_page.setLayout(table_layout)
 # Schedule generator page.
 gen_page = QWidget()
 gen_layout = QVBoxLayout()
-gen_layout.addWidget(QLabel("generador"))
+gen_layout.addWidget(LoadSchedule())
 gen_page.setLayout(gen_layout)
 
 # Add widgets to stack.
@@ -50,12 +51,6 @@ stackedPages.addWidget(table_page)
 stackedPages.addWidget(gen_page)
 
 layout.addWidget(stackedPages)
-
-# Create navegation bar instance.
-#nav = NavBar(stackedPages)
-
-#layout.addWidget(nav)
-#layout.addWidget(title)
 
 window.setLayout(layout)
 
