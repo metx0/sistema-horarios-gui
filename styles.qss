@@ -17,6 +17,6 @@ QLabel {
 }
 
 #title {
-    font-weight: 800;
-    color: #403D39;
+    font-familiy: 'Helvetica Neue';
+    color: #EB5E28;
 }
