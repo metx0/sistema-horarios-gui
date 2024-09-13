@@ -9,6 +9,7 @@ from PyQt5.QtWidgets import (
 
 # Used for text alignment
 from PyQt5.QtCore import Qt
+from tableWidget import DataTable
 
 
 class MainWindow(QWidget):
